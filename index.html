@@ -67,61 +67,18 @@
     @keyframes splashTextIn  { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
     @keyframes splashFill    { from{width:0} to{width:100%} }
 
-    /* ── Hero fallback bg ── */
+    /* ── Hero bg ── */
     #hero {
-      background: #011528 !important;
-      min-height: calc(100vh - 85px) !important;
-      margin-top: 85px;
+      background: linear-gradient(160deg,#011f3f 0%,#0077b6 60%,#00b4d8 100%) !important;
+      min-height: 100vh !important;
+      margin-top: 0 !important;
     }
-    .hero-animated-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(160deg, #011528 0%, #012a4a 35%, #013e6b 65%, #0077b6 100%);
-      overflow: hidden;
-    }
-    .hero-animated-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 20% 40%, rgba(0,180,216,0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 55% 45% at 80% 65%, rgba(0,119,182,0.3) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 60% at 50% 95%, rgba(0,60,140,0.4) 0%, transparent 50%);
-      animation: heroBgPulse 8s ease-in-out infinite;
-    }
-    .hero-animated-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg, transparent, transparent 58px,
-        rgba(0,180,216,0.04) 58px, rgba(0,180,216,0.04) 60px
-      );
-    }
-    @keyframes heroBgPulse {
-      0%,100%{ transform: scale(1) translate(0,0); }
-      50%     { transform: scale(1.06) translate(-12px,10px); }
-    }
-    .hero-content { position:relative;z-index:5; }
-    .water-lines,.swim-lanes,.orb,.hero-shape,.hero-parallax { z-index:2; }
   </style>
 </head>
 
 
 <body>
-<!-- ════ SPLASH SCREEN ════ -->
-<div id="splash">
-  <img src="assets/images/logo.png" class="splash-logo" alt="Swim Home Logo"
-       onerror="this.style.display='none';document.querySelector('.splash-logo-placeholder').style.display='flex';"/>
-  <div class="splash-logo-placeholder" style="display:none">SH</div>
-  <div class="splash-name">Swim Home</div>
-  <div class="splash-sub">Sports Services</div>
-  <div class="splash-bar"><div class="splash-bar-fill"></div></div>
-</div>
 
-<canvas id="ripple-canvas"></canvas>
-<canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
 
 <!-- ══ NAVBAR ══ -->
 <nav id="navbar">
@@ -141,49 +98,12 @@
 </nav>
 
 <section id="hero">
-  <div class="hero-animated-bg"></div>
- <!-- <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/video/57117.mp4" type="video/mp4"/>
-  </video>
- -->
-  <div class="hero-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="hero-shape hero-shape-1"></div>
-  <div class="hero-shape hero-shape-2"></div>
-  <div class="hero-shape hero-shape-3"></div>
-  <div class="hero-parallax">
-    <div class="parallax-grid"></div>
-  </div>
-  <div class="swim-lanes">
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-  </div>
-  <div class="water-lines">
-    <div class="water-line"></div>
-    <div class="water-line"></div>
-    <div class="water-line"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge" id="hero-badge">Est. 2016 · Egypt's Aquatic Leaders</div>
-    <div style="margin-bottom:1.5rem;">
-      <img src="assets/images/logo.png" alt="Swim Home Logo"
-           style="width:90px;height:90px;border-radius:20px;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(0,180,216,0.5));animation:splashLogoIn .8s ease forwards;"
-           onerror="this.style.display='none'"/>
-    </div>
-    <h1 class="hero-title" id="hero-title">
-      <span id="hero-t1">Swim Home:</span>
-      <span class="line-accent" id="hero-t2">Building the Future</span>
-      <span id="hero-t3">of Aquatic Excellence.</span>
-    </h1>
-    <p class="hero-sub" id="hero-sub">Specialized in the management, and operation of swimming academies and pools — serving Al-Gharbia Governorate and beyond since 2016.</p>
-    <a href="#services" class="hero-cta" id="hero-cta">
-      <span id="hero-cta-text">Explore Our World</span>
-      <span>→</span>
-    </a>
+  <div class="hero-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;width:100%;">
+    <img src="assets/images/logo.png" class="splash-logo" alt="Swim Home Logo"
+         onerror="this.style.display='none';document.querySelector('.splash-logo-placeholder').style.display='flex';"/>
+    <div class="splash-logo-placeholder" style="display:none">SH</div>
+    <div class="splash-name" id="splash-name">Swim Home</div>
+    <div class="splash-sub" id="splash-sub">Sports Services</div>
   </div>
   <div class="scroll-indicator">
     <div class="scroll-mouse"><div class="scroll-dot"></div></div>
@@ -395,15 +315,15 @@
         <h4 id="footer-contact-title">Contact</h4>
         <ul class="footer-contact">
           <li><span class="ico">📍</span><span id="footer-address">Tanta, Al-Gharbia Governorate, Egypt</span></li>
-          <li><span class="ico">📞</span><span id="footer-phone">+20 1020300010</span></li>
-          <li><span class="ico">📧</span><span id="footer-email">info@swimhome.eg</span></li>
-          <li><span class="ico">⏰</span><span id="footer-hours">Sat – Thu: 9:00 AM – 6:00 PM</span></li>
+          <li><span class="ico">📞</span><span id="footer-phone">+201020300010</span></li>
+          <li><span class="ico">📧</span><span id="footer-email">ahmedsaadhebila@gmail.com</span></li>
+          <li><span class="ico">⏰</span><span id="footer-hours">11am / 11pm</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p id="footer-copy">© 2025 <span>Swim Home Sports Services</span>. All rights reserved.</p>
+      <p id="footer-copy">© 2026 <span>Swim Home Sports Services</span>. All rights reserved.</p>
       <p >
         Designed & Developed by <strong>Ahmed hebila</strong> | 
         <a href="https://www.linkedin.com/in/ahmed-hebila/" target="_blank" rel="noopener noreferrer">LinkedIn</a> - 

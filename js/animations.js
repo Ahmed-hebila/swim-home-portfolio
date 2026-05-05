@@ -20,32 +20,7 @@ document.addEventListener('click', e => {
   setTimeout(() => r.remove(), 800);
 });
 
-/* ════ 2. 3D BUBBLE SYSTEM ════ */
-(function initBubbles() {
-  const container = document.getElementById('hero');
-  if (!container) return;
-  const COUNT = 18;
-
-  function createBubble() {
-    const b = document.createElement('div');
-    b.className = 'bubble';
-    const size  = 8 + Math.random() * 28;
-    const left  = 5  + Math.random() * 90;
-    const delay = Math.random() * 8;
-    const dur   = 7  + Math.random() * 9;
-    const dx    = (Math.random() - 0.5) * 80;
-    b.style.cssText = `
-      width:${size}px;height:${size}px;
-      left:${left}%;bottom:-${size}px;
-      --dx:${dx}px;
-      animation-duration:${dur}s;
-      animation-delay:${delay}s;
-    `;
-    container.appendChild(b);
-    setTimeout(() => { b.remove(); createBubble(); }, (dur + delay) * 1000);
-  }
-  for (let i = 0; i < COUNT; i++) createBubble();
-})();
+/* ════ 2. 3D BUBBLE SYSTEM (REMOVED) ════ */
 
 /* ════ 3. CANVAS PARTICLE SYSTEM (water particles) ════ */
 (function initParticles() {
@@ -151,11 +126,8 @@ window.addEventListener('scroll', () => {
 /* ════ 7. GSAP SCROLL REVEALS ════ */
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.timeline({ defaults:{ ease:'power3.out' } })
-  .from('#hero-badge',  { opacity:0, y:30, duration:.8, delay:.3 })
-  .from('#hero-title',  { opacity:0, y:55, duration:1.1 }, '-=.4')
-  .from('#hero-sub',    { opacity:0, y:30, duration:.8  }, '-=.5')
-  .from('#hero-cta',    { opacity:0, y:20, duration:.6  }, '-=.4');
+gsap.timeline({ defaults:{ ease:'power3.out' } });
+
 
 gsap.utils.toArray('.reveal').forEach((el, i) => {
   gsap.fromTo(el,

@@ -34,13 +34,16 @@ function applyLanguage(lang) {
   document.getElementById('nav-vision').textContent  = data.nav.vision;
   document.getElementById('lang-btn').textContent    = data.nav.langSwitch;
 
-  /* Hero */
-  document.getElementById('hero-badge').textContent  = data.hero.badge;
-  document.getElementById('hero-t1').textContent     = data.hero.title1;
-  document.getElementById('hero-t2').textContent     = data.hero.title2;
-  document.getElementById('hero-t3').textContent     = data.hero.title3;
-  document.getElementById('hero-sub').textContent    = data.hero.sub;
-  document.getElementById('hero-cta-text').textContent = data.hero.cta;
+  /* Hero / Splash */
+  const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+  setText('hero-badge', data.hero.badge);
+  setText('hero-t1', data.hero.title1);
+  setText('hero-t2', data.hero.title2);
+  setText('hero-t3', data.hero.title3);
+  setText('hero-sub', data.hero.sub);
+  setText('hero-cta-text', data.hero.cta);
+  setText('splash-name', data.nav.logo);
+  setText('splash-sub', lang === 'ar' ? 'للخدمات الرياضية' : 'Sports Services');
 
   /* About */
   document.getElementById('about-label').textContent = data.about.label;
@@ -120,7 +123,7 @@ function applyLanguage(lang) {
   document.getElementById('footer-email').textContent      = data.footer.email;
   document.getElementById('footer-hours').textContent      = data.footer.hours;
   document.getElementById('footer-copy').innerHTML         = data.footer.copy;
-  document.getElementById('footer-love').textContent       = data.footer.love;
+  const fLove = document.getElementById('footer-love'); if(fLove) fLove.textContent = data.footer.love;
   document.getElementById('footer-nav-about').textContent  = data.nav.about;
   document.getElementById('footer-nav-services').textContent = data.nav.services;
   document.getElementById('footer-nav-timeline').textContent = data.nav.timeline;
