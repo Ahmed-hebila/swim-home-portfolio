@@ -379,7 +379,7 @@ const TRANSLATIONS = {
       phone:        '+20 1020300010',
       email:        'ahmedsaadhebila@gmail.com',
       hours:        'الأحد – الخميس: 11 صباحاً – 10 مساءً',
-      copy:         '© 2025 Swim Home للخدمات الرياضية. جميع الحقوق محفوظة.',
+      copy:         '© 2026 Swim Home للخدمات الرياضية. جميع الحقوق محفوظة.',
       love:         ' Designed & Developed by Eng Ahmed Hebila',
       scrollTop:    '↑',
     },
