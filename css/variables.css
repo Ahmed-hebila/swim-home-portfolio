@@ -1,0 +1,85 @@
+/* ═══════════════════════════════════════════
+   SWIM HOME — Light Mode ONLY
+   Water-Identity Color System
+   ═══════════════════════════════════════════ */
+:root {
+  /* ─── Backgrounds ─── */
+  --bg-root:       #f0f8ff;       /* Alice blue */
+  --bg-surface:    #e8f4fd;
+  --bg-card:       rgba(255,255,255,0.85);
+  --bg-card-hover: rgba(255,255,255,0.98);
+  --bg-nav:        rgba(240,248,255,0.92);
+  --bg-footer:     #011f3f;       /* deep ocean */
+
+  /* ─── Text ─── */
+  --text-primary:  #011f3f;       /* deep navy */
+  --text-secondary:rgba(1,50,100,0.72);
+  --text-muted:    rgba(1,50,100,0.45);
+  --text-nav:      rgba(1,40,80,0.85);
+
+  /* ─── Water Accent Palette ─── */
+  --accent:        #0077b6;       /* ocean blue */
+  --accent-2:      #00b4d8;       /* pool aqua */
+  --accent-3:      #90e0ef;       /* shallow water */
+  --accent-light:  #caf0f8;       /* foam */
+  --accent-gold:   #f4a261;       /* sunrise */
+
+  /* ─── Gradients ─── */
+  --grad-accent:    linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+  --grad-water:     linear-gradient(160deg, #0077b6 0%, #00b4d8 50%, #90e0ef 100%);
+  --grad-deep:      linear-gradient(180deg, #023e8a 0%, #0077b6 100%);
+  --grad-hero:      linear-gradient(160deg, rgba(1,20,50,0.92) 0%, rgba(0,60,120,0.82) 60%, rgba(0,100,180,0.65) 100%);
+  --grad-card:      linear-gradient(135deg, rgba(0,119,182,0.04) 0%, rgba(0,180,216,0.03) 100%);
+  --grad-section-1: linear-gradient(180deg, #f0f8ff 0%, #e1f3fd 50%, #f0f8ff 100%);
+  --grad-section-2: linear-gradient(180deg, #f0f8ff 0%, #ddf0fc 50%, #f0f8ff 100%);
+
+  /* ─── Dimmed accents ─── */
+  --accent-dim:    rgba(0,119,182,0.08);
+  --accent-border: rgba(0,119,182,0.18);
+  --accent-glow:   rgba(0,119,182,0.28);
+  --accent-glow-lg:rgba(0,119,182,0.07);
+  --aqua-dim:      rgba(0,180,216,0.1);
+  --aqua-border:   rgba(0,180,216,0.22);
+
+  /* ─── Shadows ─── */
+  --shadow-card:   0 4px 24px rgba(0,80,160,0.09), 0 1px 0 #fff inset;
+  --shadow-hover:  0 20px 60px rgba(0,80,160,0.16), 0 0 0 1.5px rgba(0,119,182,0.2), 0 0 40px rgba(0,180,216,0.1);
+  --shadow-glow:   0 0 40px rgba(0,119,182,0.12), 0 0 80px rgba(0,180,216,0.07);
+  --shadow-btn:    0 8px 32px rgba(0,119,182,0.45), 0 2px 8px rgba(0,0,0,0.12);
+
+  /* ─── Borders ─── */
+  --border-card:   rgba(0,119,182,0.1);
+  --border-subtle: rgba(0,119,182,0.07);
+  --border-nav:    rgba(0,119,182,0.12);
+
+  /* ─── Canvas ─── */
+  --ripple-color:  0,119,182;
+  --ripple-opacity:0.18;
+  --scrollbar-thumb:rgba(0,119,182,0.25);
+
+  /* ─── Vision cards ─── */
+  --vision-card-1: linear-gradient(135deg, rgba(0,60,120,0.07) 0%, rgba(0,119,182,0.1) 100%);
+  --vision-card-2: linear-gradient(135deg, rgba(0,180,216,0.07) 0%, rgba(0,119,182,0.06) 100%);
+
+  /* ─── Typography ─── */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-arabic:  'Cairo', sans-serif;
+
+  --fs-hero: clamp(2.4rem, 6.5vw, 5.2rem);
+  --fs-h2:   clamp(1.9rem, 4vw, 3rem);
+  --fs-h3:   1.05rem;
+  --fs-body: 0.95rem;
+  --fs-sm:   0.85rem;
+  --fs-xs:   0.72rem;
+
+  --r-sm:   8px;  --r-md:  14px;
+  --r-lg:   20px; --r-xl:  28px;
+  --r-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --dur:      0.4s;
+  --dur-fast: 0.22s;
+
+  --card-perspective: 900px;
+}

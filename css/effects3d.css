@@ -1,0 +1,143 @@
+/* ═══════════════════════════════════════════════
+   SWIM HOME — 3D Water Identity Effects
+   Swimming pool lanes · Bubbles · Waves · Depth
+   ═══════════════════════════════════════════════ */
+
+/* ════ HERO BACKGROUND LAYERS ════ */
+.orb { position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 14s ease-in-out infinite;z-index:2; }
+.orb-1 { width:700px;height:700px;top:-15%;left:-10%;background:radial-gradient(circle,rgba(0,119,182,0.3) 0%,rgba(0,180,216,0.12) 55%,transparent 80%);animation-duration:16s; }
+.orb-2 { width:500px;height:500px;bottom:-10%;right:-8%;background:radial-gradient(circle,rgba(0,180,216,0.25) 0%,rgba(144,224,239,0.1) 55%,transparent 80%);animation-duration:11s;animation-delay:-6s; }
+.orb-3 { width:280px;height:280px;top:35%;right:15%;background:radial-gradient(circle,rgba(202,240,248,0.3) 0%,transparent 70%);animation-duration:18s;animation-delay:-9s; }
+@keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1);}33%{transform:translateY(-35px) scale(1.05);}66%{transform:translateY(22px) scale(0.96);} }
+
+/* ════ SWIMMING LANE LINES (hero) ════ */
+.swim-lanes { position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden; }
+.swim-lane {
+  position:absolute;height:2px;left:0;right:0;
+  background:linear-gradient(90deg, transparent 0%, rgba(144,224,239,0.35) 20%, rgba(0,180,216,0.5) 50%, rgba(144,224,239,0.35) 80%, transparent 100%);
+  animation:laneFlow 6s ease-in-out infinite;
+}
+.swim-lane::before { /* lane rope floats */
+  content:'';position:absolute;top:50%;left:0;right:0;height:6px;
+  transform:translateY(-50%);
+  background:repeating-linear-gradient(90deg, transparent 0px, transparent 30px, rgba(0,180,216,0.4) 30px, rgba(0,180,216,0.4) 40px);
+  border-radius:4px;
+}
+.swim-lane:nth-child(1){top:25%;animation-delay:0s;}
+.swim-lane:nth-child(2){top:45%;animation-delay:1.5s;opacity:.7;}
+.swim-lane:nth-child(3){top:65%;animation-delay:3s;opacity:.5;}
+.swim-lane:nth-child(4){top:82%;animation-delay:4.5s;opacity:.35;}
+@keyframes laneFlow { 0%,100%{opacity:.6;transform:scaleX(1);}50%{opacity:1;transform:scaleX(1.02);} }
+
+/* ════ PARALLAX GRID (pool tiles look) ════ */
+.parallax-grid {
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,180,216,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,180,216,0.06) 1px, transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black 10%, transparent 80%);
+}
+.hero-parallax { position:absolute;inset:0;z-index:2;pointer-events:none;transition:transform .08s ease-out; }
+
+/* ════ ROTATING SHAPE RINGS ════ */
+.hero-shape { position:absolute;border-radius:50%;pointer-events:none;z-index:2;border:1px solid rgba(0,180,216,0.2);animation:shapeSpin 25s linear infinite; }
+.hero-shape-1 { width:520px;height:520px;top:50%;left:50%;transform:translate(-50%,-50%);animation-duration:28s; }
+.hero-shape-2 { width:380px;height:380px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(0,119,182,0.15);animation-duration:20s;animation-direction:reverse; }
+.hero-shape-3 { width:220px;height:220px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(144,224,239,0.25);animation-duration:13s; }
+@keyframes shapeSpin { 0%{transform:translate(-50%,-50%) rotate(0deg);}100%{transform:translate(-50%,-50%) rotate(360deg);} }
+
+/* ════ 3D WAVE DIVIDER ════ */
+.wave-divider { position:relative;height:80px;overflow:hidden;z-index:1; }
+.wave-divider svg { position:absolute;bottom:0;width:100%;height:100%; }
+
+/* ──── 3D Tilt wrapper (hero content only) ──── */
+.tilt-wrap {
+  perspective: var(--card-perspective);
+  transform-style: preserve-3d;
+}
+
+/* Cards: smooth hover transitions only (no JS tilt) */
+.service-card,
+.strength-card,
+.pillar-card,
+.timeline-card,
+.vision-card {
+  transition: transform .4s var(--ease-out), box-shadow .3s, border-color .3s;
+}
+
+/* ════ BUBBLE PARTICLES (3D sphere look) ════ */
+.bubble {
+  position:absolute;border-radius:50%;pointer-events:none;z-index:2;
+  background:radial-gradient(circle at 35% 35%,
+    rgba(255,255,255,0.8) 0%,
+    rgba(0,180,216,0.3) 40%,
+    rgba(0,119,182,0.15) 70%,
+    transparent 100%);
+  border:1px solid rgba(0,180,216,0.3);
+  animation:bubbleRise var(--dur, 8s) ease-in infinite;
+  box-shadow:inset -3px -3px 8px rgba(0,119,182,0.2), inset 3px 3px 8px rgba(255,255,255,0.4);
+}
+@keyframes bubbleRise {
+  0%  { transform:translateY(0) translateX(0) scale(1);    opacity:0; }
+  10% { opacity:1; }
+  90% { opacity:.8; }
+  100%{ transform:translateY(-110vh) translateX(var(--dx,20px)) scale(.8); opacity:0; }
+}
+
+/* ════ SECTION MESH BLOBS ════ */
+.section-mesh { position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0; }
+.mesh-blob { position:absolute;border-radius:50%;filter:blur(90px); }
+.mesh-blob-1 { width:450px;height:450px;top:-80px;right:-100px;background:radial-gradient(circle,rgba(0,119,182,0.07) 0%,transparent 70%); }
+.mesh-blob-2 { width:320px;height:320px;bottom:-60px;left:-80px;background:radial-gradient(circle,rgba(0,180,216,0.09) 0%,transparent 70%); }
+
+/* ════ SERVICE ICON 3D LIFT ════ */
+.service-icon-wrap { transition:transform .4s var(--ease-out),background .3s,box-shadow .3s; }
+.service-card:hover .service-icon-wrap { transform:translateZ(24px) scale(1.1);background:var(--grad-accent);box-shadow:0 8px 28px rgba(0,119,182,0.35); }
+.service-card:hover .service-icon-wrap span { filter:brightness(0) invert(1); }
+
+/* ════ STRENGTH ICON POP ════ */
+.strength-icon { display:block;font-size:2.5rem;margin-bottom:1.1rem;position:relative;z-index:1;transition:transform .4s var(--ease-out); }
+.strength-card:hover .strength-icon { transform:translateY(-10px) scale(1.18) rotateY(15deg); }
+
+/* ════ VISION ICON FLOAT ════ */
+.vision-big-icon { font-size:3.5rem;display:block;margin-bottom:1.6rem;position:relative;z-index:1;transition:transform .4s var(--ease-out); }
+.vision-card:hover .vision-big-icon { transform:translateY(-8px) scale(1.1); }
+
+/* ════ GRADIENT TEXT ════ */
+.grad-text { background:var(--grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.accent-text { background:var(--grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+
+/* ════ STAT NUMBERS ════ */
+.stat-num { font-family:var(--font-heading);font-weight:900;font-size:2.8rem;background:var(--grad-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.4rem;display:block; }
+
+/* ════ FOOTER ════ */
+#footer { background:var(--bg-footer);color:#e0f0ff; }
+#footer .nav-logo { background:var(--grad-water);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+#footer .footer-brand p,#footer .footer-patronage,#footer .footer-col ul li a,#footer .footer-contact li,#footer .footer-bottom p { color:rgba(180,220,255,0.6); }
+#footer .footer-col h4 { color:#fff; }
+#footer .footer-bottom span { color:var(--accent-2); }
+#footer .social-btn { border-color:rgba(0,180,216,0.25);background:rgba(0,180,216,0.06); }
+#footer .footer-divider { background:rgba(255,255,255,0.06); }
+
+/* ════ TIMELINE ACTIVE DOT ════ */
+@keyframes dotPulse { 0%,100%{box-shadow:0 0 0 4px rgba(0,119,182,0.12),0 0 16px rgba(0,119,182,0.3);}50%{box-shadow:0 0 0 8px rgba(0,119,182,0.08),0 0 32px rgba(0,180,216,0.6),0 0 60px rgba(0,119,182,0.15);} }
+.timeline-item.active .timeline-dot { animation:dotPulse 2.5s ease infinite;background:var(--accent); }
+
+/* ════ WATER RIPPLE on click ════ */
+.water-ripple-click {
+  position:fixed;border-radius:50%;pointer-events:none;z-index:9999;
+  border:2px solid rgba(0,180,216,0.6);
+  animation:clickRipple .8s ease-out forwards;
+}
+@keyframes clickRipple { 0%{width:0;height:0;opacity:1;transform:translate(-50%,-50%);}100%{width:200px;height:200px;opacity:0;transform:translate(-50%,-50%);} }
+
+/* ════ POOL LANE DECORATION (timeline) ════ */
+.timeline-track::before { background:linear-gradient(180deg,transparent 0%,var(--accent) 8%,var(--accent-2) 92%,transparent 100%);opacity:.4; }
+
+/* ════ RESPONSIVE ════ */
+@media(max-width:768px) {
+  .swim-lane { height:1px; }
+  .hero-shape { display:none; }
+}

@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════════
+   SWIM HOME — Base v2
+   ═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  background-color:var(--bg-root);
+  color:var(--text-primary);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  transition:background-color .5s,color .5s;
+  /* subtle noise texture */
+  background-image:var(--noise);
+}
+[lang="ar"],
+[lang="ar"] body{font-family:var(--font-arabic);}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--scrollbar-thumb);border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-glow);}
+::selection{background:rgba(0,229,255,.15);color:var(--text-primary);}
+
+/* ─── Canvas ─── */
+#ripple-canvas{
+  position:fixed;inset:0;z-index:0;
+  opacity:var(--ripple-opacity);pointer-events:none;
+  transition:opacity .6s;
+}
+
+/* ─── Sections ─── */
+section{position:relative;z-index:1;}
+
+/* ─── Section alt backgrounds ─── */
+.section-alt{background:var(--grad-section-1);}
+.section-alt-2{background:var(--grad-section-2);}
+
+/* ─── Shared label / title / line ─── */
+.section-label{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:var(--fs-xs);font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1rem;
+}
+.section-label::before{
+  content:'';display:block;width:24px;height:2px;
+  background:var(--grad-accent);border-radius:2px;
+}
+[dir="rtl"] .section-label{flex-direction:row-reverse;}
+[dir="rtl"] .section-label::before{content:none;}
+[dir="rtl"] .section-label::after{
+  content:'';display:block;width:24px;height:2px;
+  background:var(--grad-accent);border-radius:2px;
+}
+
+.section-title{
+  font-family:var(--font-heading);font-weight:900;
+  font-size:var(--fs-h2);color:var(--text-primary);
+  line-height:1.12;letter-spacing:-.5px;
+  transition:color .4s;
+}
+.section-title span,.section-title .accent{
+  background:var(--grad-accent);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-line{
+  width:56px;height:3px;
+  background:var(--grad-accent);
+  border-radius:3px;margin:1.4rem 0 2rem;
+}
+[dir="rtl"] .section-line{margin-right:0;}
+
+.section-center .section-line{margin:1.4rem auto 2rem;}
+
+/* ─── Reveal ─── */
+.reveal{opacity:0;transform:translateY(40px);}
+
+/* ─── Utility ─── */
+.accent-text{
+  background:var(--grad-accent);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
