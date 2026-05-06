@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Swim Home Sports Services</title>
-  <meta name="description" content="Egypt's premier integrated aquatic management company — pool construction, operations, training and championships since 2016."/>
+  <title>سويم هوم للخدمات الرياضية</title>
+  <meta name="description" content="تُعد Swim Home من الجهات المتخصصة في إنشاء وإدارة وتشغيل أكاديميات السباحة وحمامات السباحة في مصر منذ 2016."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;500&family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet"/>
@@ -67,129 +67,44 @@
     @keyframes splashTextIn  { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
     @keyframes splashFill    { from{width:0} to{width:100%} }
 
-    /* ── Hero fallback bg ── */
-    
+    /* ── Hero bg ── */
     #hero {
-      background: #011528 !important;
-      min-height: calc(100vh - 85px) !important;
-      margin-top: 85px;
+      background: linear-gradient(160deg,#011f3f 0%,#0077b6 60%,#00b4d8 100%) !important;
+      min-height: 100vh !important;
+      margin-top: 0 !important;
     }
-    .hero-animated-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(160deg, #011528 0%, #012a4a 35%, #013e6b 65%, #0077b6 100%);
-      overflow: hidden;
-    }
-    .hero-animated-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 20% 40%, rgba(0,180,216,0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 55% 45% at 80% 65%, rgba(0,119,182,0.3) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 60% at 50% 95%, rgba(0,60,140,0.4) 0%, transparent 50%);
-      animation: heroBgPulse 8s ease-in-out infinite;
-    }
-    .hero-animated-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg, transparent, transparent 58px,
-        rgba(0,180,216,0.04) 58px, rgba(0,180,216,0.04) 60px
-      );
-    }
-    @keyframes heroBgPulse {
-      0%,100%{ transform: scale(1) translate(0,0); }
-      50%     { transform: scale(1.06) translate(-12px,10px); }
-    }
-    .hero-content { position:relative;z-index:5; }
-    .water-lines,.swim-lanes,.orb,.hero-shape,.hero-parallax { z-index:2; }
   </style>
 </head>
 
 
 <body>
-<!-- ════ SPLASH SCREEN ════ -->
-<div id="splash">
-  <img src="assets/images/logo.png" class="splash-logo" alt="Swim Home Logo"
-       onerror="this.style.display='none';document.querySelector('.splash-logo-placeholder').style.display='flex';"/>
-  <div class="splash-logo-placeholder" style="display:none">SH</div>
-  <div class="splash-name">Swim Home</div>
-  <div class="splash-sub">Sports Services</div>
-  <div class="splash-bar"><div class="splash-bar-fill"></div></div>
-</div>
 
-<canvas id="ripple-canvas"></canvas>
-<canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
 
 <!-- ══ NAVBAR ══ -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo" id="nav-logo">Swim Home</a>
+  <a href="#hero" class="nav-logo" id="nav-logo">سويم هوم</a>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#about"     id="nav-about">About</a>
-      <a href="#services"  id="nav-services">Services</a>
-      <a href="#timeline"  id="nav-timeline">Projects</a>
-      <a href="#strengths" id="nav-strengths">Why Us</a>
-      <a href="#vision"    id="nav-vision">Vision</a>
-    </div>
-    <div class="nav-controls">
-      <button class="ctrl-btn" id="lang-btn" onclick="toggleLanguage()" title="Switch language">ع</button>
+      <a href="#about"     id="nav-about">من نحن</a>
+      <a href="#services"  id="nav-services">خدماتنا</a>
+      <a href="#timeline"  id="nav-timeline">مشاريعنا</a>
+      <a href="#strengths" id="nav-strengths">نقاط القوة</a>
+      <a href="#vision"    id="nav-vision">رؤيتنا</a>
     </div>
   </div>
 </nav>
 
 <section id="hero">
-  <div class="hero-animated-bg"></div>
- <!-- <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/video/57117.mp4" type="video/mp4"/>
-  </video>
- -->
-  
-  <div class="hero-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="hero-shape hero-shape-1"></div>
-  <div class="hero-shape hero-shape-2"></div>
-  <div class="hero-shape hero-shape-3"></div>
-  <div class="hero-parallax">
-    <div class="parallax-grid"></div>
-  </div>
-  <div class="swim-lanes">
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-    <div class="swim-lane"></div>
-  </div>
-  <div class="water-lines">
-    <div class="water-line"></div>
-    <div class="water-line"></div>
-    <div class="water-line"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge" id="hero-badge">Est. 2016 · Egypt's Aquatic Leaders</div>
-    <div style="margin-bottom:1.5rem;">
-      <img src="assets/images/logo.png" alt="Swim Home Logo"
-           style="width:90px;height:90px;border-radius:20px;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(0,180,216,0.5));animation:splashLogoIn .8s ease forwards;"
-           onerror="this.style.display='none'"/>
-    </div>
-    <h1 class="hero-title" id="hero-title">
-      <span id="hero-t1">Swim Home:</span>
-      <span class="line-accent" id="hero-t2">Building the Future</span>
-      <span id="hero-t3">of Aquatic Excellence.</span>
-    </h1>
-    <p class="hero-sub" id="hero-sub">Specialized in the management, and operation of swimming academies and pools — serving Al-Gharbia Governorate and beyond since 2016.</p>
-    <a href="#services" class="hero-cta" id="hero-cta">
-      <span id="hero-cta-text">Explore Our World</span>
-      <span>→</span>
-    </a>
+  <div class="hero-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;width:100%;">
+    <img src="assets/images/logo.png" class="splash-logo" alt="Swim Home Logo"
+         onerror="this.style.display='none';document.querySelector('.splash-logo-placeholder').style.display='flex';"/>
+    <div class="splash-logo-placeholder" style="display:none">SH</div>
+    <div class="splash-name" id="splash-name">سويم هوم</div>
+    <div class="splash-sub" id="splash-sub">للخدمات الرياضية</div>
   </div>
   <div class="scroll-indicator">
     <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-    <span id="hero-scroll">Scroll</span>
+    <span id="hero-scroll">تمرير</span>
   </div>
 </section>
 
@@ -198,25 +113,25 @@
 <section id="about">
   <div class="section-mesh"><div class="mesh-blob mesh-blob-1"></div><div class="mesh-blob mesh-blob-2"></div></div>
   <div class="about-inner">
-    <p class="section-label reveal" id="about-label">Our Identity</p>
+    <p class="section-label reveal" id="about-label">نبذة عن الشركة</p>
     <h2 class="section-title reveal">
-      <span id="about-t1">One Vision.</span><br/>
-      <span id="about-t2">Total Aquatic Excellence.</span>
+      <span id="about-t1">رؤية واحدة</span><br/>
+      <span id="about-t2">تميّز رياضي شامل</span>
     </h2>
     <div class="section-line reveal"></div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p id="about-p1">Swim Home Sports Services is a specialized company in the management, and operation of swimming academies and pools, with extensive hands-on experience in developing and running sports and educational projects inside Al-Gharbia Governorate and beyond.</p>
-        <p id="about-p2">We operate according to the highest standards of quality, safety, and modern management — delivering a fully integrated system that covers every aspect of aquatic facility excellence.</p>
+        <p id="about-p1">تُعد Swim Home للخدمات الرياضية من الجهات المتخصصة في إنشاء وإدارة وتشغيل أكاديميات السباحة وحمامات السباحة، مع خبرة عملية ممتدة في تطوير وتشغيل المشروعات الرياضية والتعليمية داخل محافظة الغربية وخارجها.</p>
+        <p id="about-p2">نعمل وفق أعلى معايير الجودة والسلامة والإدارة الحديثة، لتقديم منظومة متكاملة تغطي كافة جوانب التميز في المنشآت المائية.</p>
       </div>
       
       <div class="about-pillars">
-        <div class="pillar-card reveal" id="pillar-0"><div class="pillar-icon">🏗️</div><h4>Fitting</h4></div>
-        <div class="pillar-card reveal" id="pillar-1"><div class="pillar-icon">⚙️</div><h4>Technical & Operational Management</h4></div>
-        <div class="pillar-card reveal" id="pillar-2"><div class="pillar-icon">🎓</div><h4>Educational & Training Programs</h4></div>
-        <div class="pillar-card reveal" id="pillar-3"><div class="pillar-icon">👥</div><h4>Qualified Technical & Admin Staff</h4></div>
-        <div class="pillar-card reveal" id="pillar-4"><div class="pillar-icon">📣</div><h4>Marketing & Enrollment Growth</h4></div>
-        <div class="pillar-card reveal" id="pillar-5"><div class="pillar-icon">🏆</div><h4>Quality Management & Customer Service</h4></div>
+        <div class="pillar-card reveal" id="pillar-0"><div class="pillar-icon">🏗️</div><h4>إنشاء وتجهيز حمامات السباحة</h4></div>
+        <div class="pillar-card reveal" id="pillar-1"><div class="pillar-icon">⚙️</div><h4>الإدارة الفنية والتشغيلية</h4></div>
+        <div class="pillar-card reveal" id="pillar-2"><div class="pillar-icon">🎓</div><h4>إعداد البرامج التعليمية والتدريبية</h4></div>
+        <div class="pillar-card reveal" id="pillar-3"><div class="pillar-icon">👥</div><h4>توفير الكوادر الفنية والإدارية</h4></div>
+        <div class="pillar-card reveal" id="pillar-4"><div class="pillar-icon">📣</div><h4>التسويق وزيادة معدلات الاشتراك</h4></div>
+        <div class="pillar-card reveal" id="pillar-5"><div class="pillar-icon">🏆</div><h4>إدارة الجودة وخدمة العملاء</h4></div>
       </div>
     </div>
   </div>
@@ -227,18 +142,18 @@
   <div class="section-mesh"><div class="mesh-blob mesh-blob-1"></div><div class="mesh-blob mesh-blob-2"></div></div>
   <div class="services-inner">
     <div class="section-center">
-      <p class="section-label reveal" id="services-label">Service Ecosystem</p>
-      <h2 class="section-title reveal"><span id="services-t1">Everything You Need.</span><br/><span id="services-t2">Nothing Left to Chance.</span></h2>
+      <p class="section-label reveal" id="services-label">منظومة الخدمات</p>
+      <h2 class="section-title reveal"><span id="services-t1">خدمات متكاملة</span><br/><span id="services-t2">تغطي كافة الاحتياجات</span></h2>
       <div class="section-line reveal"></div>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal" id="service-0"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🏗️</span></div><h3>Pool Construction & Fitting</h3><p>Full-cycle design, construction, and outfitting of swimming pools to international standards.</p><span class="service-tag">Infrastructure</span></div>
-      <div class="service-card reveal" id="service-1"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>⚙️</span></div><h3>Operations & Management</h3><p>Day-to-day facility operations, water chemistry, equipment maintenance, and safety compliance.</p><span class="service-tag">Management</span></div>
-      <div class="service-card reveal" id="service-2"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🎓</span></div><h3>Educational Programs</h3><p>Structured swimming curricula for all levels — from beginners to competitive athletes.</p><span class="service-tag">Education</span></div>
-      <div class="service-card reveal" id="service-3"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>👥</span></div><h3>HR & Coaching</h3><p>Recruiting, training, and deploying specialized technical and administrative personnel.</p><span class="service-tag">Human Capital</span></div>
-      <div class="service-card reveal" id="service-4"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>📣</span></div><h3>Marketing & Enrollment</h3><p>Strategic campaigns to maximize subscription rates and community engagement.</p><span class="service-tag">Growth</span></div>
-      <div class="service-card reveal" id="service-5"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🔍</span></div><h3>Quality & Customer Service</h3><p>Rigorous quality management frameworks and customer service excellence protocols.</p><span class="service-tag">Excellence</span></div>
-      <div class="service-card reveal" id="service-6"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🏆</span></div><h3>Championship Organizing</h3><p>Planning and executing local and regional aquatic competitions and sporting events.</p><span class="service-tag">Events</span></div>
+      <div class="service-card reveal" id="service-0"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🏗️</span></div><h3>إنشاء وتجهيز حمامات السباحة</h3><p>إنشاء وتجهيز حمامات السباحة وفق أعلى المعايير.</p><span class="service-tag">بنية تحتية</span></div>
+      <div class="service-card reveal" id="service-1"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>⚙️</span></div><h3>الإدارة الفنية والتشغيلية</h3><p>إدارة فنية وتشغيلية شاملة لضمان كفاءة العمل.</p><span class="service-tag">إدارة</span></div>
+      <div class="service-card reveal" id="service-2"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🎓</span></div><h3>إعداد البرامج التعليمية</h3><p>إعداد البرامج التعليمية والتدريبية لمختلف المستويات.</p><span class="service-tag">تعليم</span></div>
+      <div class="service-card reveal" id="service-3"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>👥</span></div><h3>توفير الكوادر الفنية والإدارية</h3><p>توفير الكوادر المؤهلة والمدربة للعمل في المنشآت الرياضية.</p><span class="service-tag">رأس المال البشري</span></div>
+      <div class="service-card reveal" id="service-4"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>📣</span></div><h3>التسويق وزيادة الاشتراكات</h3><p>التسويق الفعال لزيادة معدلات الاشتراك والاستمرارية.</p><span class="service-tag">نمو</span></div>
+      <div class="service-card reveal" id="service-5"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🔍</span></div><h3>إدارة الجودة وخدمة العملاء</h3><p>ضمان تطبيق معايير الجودة وتقديم أفضل خدمة للعملاء.</p><span class="service-tag">تميّز</span></div>
+      <div class="service-card reveal" id="service-6"><div class="service-card-bg"></div><div class="service-icon-wrap"><span>🏆</span></div><h3>تنظيم البطولات والفعاليات</h3><p>تنظيم وإدارة البطولات والفعاليات الرياضية بنجاح.</p><span class="service-tag">فعاليات</span></div>
     </div>
   </div>
 </section>
@@ -248,64 +163,64 @@
   <div class="section-mesh"><div class="mesh-blob mesh-blob-1"></div><div class="mesh-blob mesh-blob-2"></div></div>
   <div class="timeline-inner">
     <div class="timeline-header">
-      <p class="section-label reveal" id="timeline-label">Our Journey</p>
-      <h2 class="section-title reveal"><span id="timeline-t1">The Success</span><span class="accent-text" id="timeline-t2"> Timeline</span></h2>
+      <p class="section-label reveal" id="timeline-label">أبرز المشروعات المنفذة</p>
+      <h2 class="section-title reveal"><span id="timeline-t1">سجل</span><span class="accent-text" id="timeline-t2"> إنجازاتنا</span></h2>
       <div class="section-line reveal" style="margin:1.4rem auto 0;"></div>
     </div>
     <div class="timeline-track">
       <div class="timeline-item reveal" id="tl-0">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year">2016</div><div class="timeline-badge">Founding Project</div>
-          <div class="timeline-title">Al-Rowad &amp; Misr Schools</div>
-          <div class="timeline-location">📍 Al-Halaa District, Tanta</div>
-          <div class="timeline-desc" id="tl-0-desc">Construction, management &amp; operation of swimming pool.</div>
+          <div class="timeline-year">2016</div><div class="timeline-badge">المشروع التأسيسي</div>
+          <div class="timeline-title">مدرسة الرواد ومصر</div>
+          <div class="timeline-location">📍 منطقة الحلاء – طنطا</div>
+          <div class="timeline-desc" id="tl-0-desc">إنشاء وإدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
       <div class="timeline-item reveal" id="tl-1">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year">2017</div><div class="timeline-badge">Expansion</div>
-          <div class="timeline-title">Smart School</div>
-          <div class="timeline-location">📍 Al-Marshaha District, Tanta</div>
-          <div class="timeline-desc" id="tl-1-desc">Construction, management &amp; operation of swimming pool.</div>
+          <div class="timeline-year">2017</div><div class="timeline-badge">التوسع</div>
+          <div class="timeline-title">مدرسة سمارت</div>
+          <div class="timeline-location">📍 منطقة المرشحة – طنطا</div>
+          <div class="timeline-desc" id="tl-1-desc">إنشاء وإدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
       <div class="timeline-item reveal" id="tl-2">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year">2020</div><div class="timeline-badge">Growth</div>
-          <div class="timeline-title">Royal School</div>
-          <div class="timeline-location">📍 Kafr Essam District, Tanta</div>
-          <div class="timeline-desc" id="tl-2-desc">Construction, management &amp; operation of swimming pool.</div>
+          <div class="timeline-year">2020</div><div class="timeline-badge">النمو</div>
+          <div class="timeline-title">مدرسة رويال</div>
+          <div class="timeline-location">📍 منطقة كفر عصام – طنطا</div>
+          <div class="timeline-desc" id="tl-2-desc">إنشاء وإدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
       <div class="timeline-item reveal" id="tl-3">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year">2023</div><div class="timeline-badge">New Markets</div>
-          <div class="timeline-title">Oxford School</div>
-          <div class="timeline-location">📍 Shebraqas, Santa District</div>
-          <div class="timeline-desc" id="tl-3-desc">Construction, management &amp; operation of swimming pool.</div>
+          <div class="timeline-year">2023</div><div class="timeline-badge">أسواق جديدة</div>
+          <div class="timeline-title">مدرسة أوكسفورد</div>
+          <div class="timeline-location">📍 شبراقاص – مركز السنطة</div>
+          <div class="timeline-desc" id="tl-3-desc">إنشاء وإدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
       <div class="timeline-item reveal" id="tl-4">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year">2025</div><div class="timeline-badge">Latest Achievement</div>
-          <div class="timeline-title">Al-Abaqera School</div>
-          <div class="timeline-location">📍 Al-Tajneed District, Tanta</div>
-          <div class="timeline-desc" id="tl-4-desc">Construction, management &amp; operation of swimming pool.</div>
+          <div class="timeline-year">2025</div><div class="timeline-badge">أحدث الإنجازات</div>
+          <div class="timeline-title">مدرسة العباقرة</div>
+          <div class="timeline-location">📍 منطقة التجنيد – طنطا</div>
+          <div class="timeline-desc" id="tl-4-desc">إنشاء وإدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
       <div class="timeline-item active reveal" id="tl-5">
         <div class="timeline-dot"></div>
         <div class="timeline-card">
-          <div class="timeline-year" style="background:none;-webkit-text-fill-color:var(--text-primary);">Now</div>
-          <div class="timeline-badge" style="background:var(--accent-glow);border-color:var(--accent);color:#fff;">🔴 Live Project</div>
-          <div class="timeline-title">Sporting Castle Club</div>
-          <div class="timeline-location">📍 Tanta</div>
-          <div class="timeline-desc" id="tl-5-desc">Management &amp; operation of swimming pool.</div>
+          <div class="timeline-year" style="background:none;-webkit-text-fill-color:var(--text-primary);">الآن</div>
+          <div class="timeline-badge" style="background:var(--accent-glow);border-color:var(--accent);color:#fff;">🔴 مشروع حالي</div>
+          <div class="timeline-title">نادي سبورتنج كاسيل</div>
+          <div class="timeline-location">📍 طنطا</div>
+          <div class="timeline-desc" id="tl-5-desc">إدارة وتشغيل حمام السباحة.</div>
         </div>
       </div>
     </div>
@@ -317,23 +232,23 @@
   <div class="section-mesh"><div class="mesh-blob mesh-blob-1"></div><div class="mesh-blob mesh-blob-2"></div></div>
   <div class="strengths-inner">
     <div class="section-center">
-      <p class="section-label reveal" id="strengths-label">Competitive Edge</p>
-      <h2 class="section-title reveal"><span id="strengths-t1">Why</span><span class="accent-text" id="strengths-t2"> Swim Home?</span></h2>
+      <p class="section-label reveal" id="strengths-label">نقاط القوة</p>
+      <h2 class="section-title reveal"><span id="strengths-t1">ما يميز</span><span class="accent-text" id="strengths-t2"> سويم هوم</span></h2>
       <div class="section-line reveal"></div>
     </div>
     <div class="strengths-grid">
-      <div class="strength-card reveal" id="str-0"><span class="strength-icon">👑</span><h3>Real Market Experience</h3><p>Genuine, proven expertise in the sports and educational market across multiple governorates.</p></div>
-      <div class="strength-card reveal" id="str-1"><span class="strength-icon">🏅</span><h3>Proven Track Record</h3><p>A successful record of operating multiple branches and projects since 2016.</p></div>
-      <div class="strength-card reveal" id="str-2"><span class="strength-icon">📈</span><h3>Maximum Enrollment Rates</h3><p>Consistent ability to achieve the highest subscription and retention rates in every project.</p></div>
-      <div class="strength-card reveal" id="str-3"><span class="strength-icon">🎯</span><h3>Expert Technical Team</h3><p>A dedicated team of specialized technical and administrative professionals.</p></div>
-      <div class="strength-card reveal" id="str-4"><span class="strength-icon">⚡</span><h3>Professional Systems</h3><p>World-class operational frameworks ensuring efficiency and consistency at every level.</p></div>
-      <div class="strength-card reveal" id="str-5"><span class="strength-icon">🛡️</span><h3>Safety &amp; Quality</h3><p>Unwavering commitment to safety, quality standards, and continuous service development.</p></div>
+      <div class="strength-card reveal" id="str-0"><span class="strength-icon">👑</span><h3>خبرة حقيقية في السوق</h3><p>خبرة حقيقية في السوق الرياضي والتعليمي عبر محافظات متعددة.</p></div>
+      <div class="strength-card reveal" id="str-1"><span class="strength-icon">🏅</span><h3>سجل ناجح</h3><p>سجل ناجح في تشغيل عدة فروع ومشروعات منذ عام 2016.</p></div>
+      <div class="strength-card reveal" id="str-2"><span class="strength-icon">📈</span><h3>أعلى نسب اشتراك</h3><p>القدرة المستمرة على تحقيق أعلى معدلات الاشتراك والاستمرارية في كل مشروع.</p></div>
+      <div class="strength-card reveal" id="str-3"><span class="strength-icon">🎯</span><h3>فريق فني متخصص</h3><p>فريق فني وإداري متخصص.</p></div>
+      <div class="strength-card reveal" id="str-4"><span class="strength-icon">⚡</span><h3>أنظمة تشغيل احترافية</h3><p>نعمل وفق أنظمة تشغيل احترافية تضمن الكفاءة والاتساق في كل مستوى.</p></div>
+      <div class="strength-card reveal" id="str-5"><span class="strength-icon">🛡️</span><h3>الأمان والسلامة</h3><p>التزام لا يتزعزع بالسلامة ومعايير الجودة والتطوير المستمر للخدمات.</p></div>
     </div>
     <div class="stats-bar">
-      <div class="stat-item reveal" id="stat-0"><div class="stat-num">9+</div><div class="stat-label">Years Active</div></div>
-      <div class="stat-item reveal" id="stat-1"><div class="stat-num">6+</div><div class="stat-label">Projects Delivered</div></div>
-      <div class="stat-item reveal" id="stat-2"><div class="stat-num">100%</div><div class="stat-label">Client Satisfaction</div></div>
-      <div class="stat-item reveal" id="stat-3"><div class="stat-num">∞</div><div class="stat-label">Passion for Excellence</div></div>
+      <div class="stat-item reveal" id="stat-0"><div class="stat-num">9+</div><div class="stat-label">سنوات خبرة</div></div>
+      <div class="stat-item reveal" id="stat-1"><div class="stat-num">6+</div><div class="stat-label">مشاريع منفذة</div></div>
+      <div class="stat-item reveal" id="stat-2"><div class="stat-num">100%</div><div class="stat-label">رضا العملاء</div></div>
+      <div class="stat-item reveal" id="stat-3"><div class="stat-num">∞</div><div class="stat-label">تطوير مستمر</div></div>
     </div>
   </div>
 </section>
@@ -343,24 +258,24 @@
   <div class="section-mesh"><div class="mesh-blob mesh-blob-1"></div><div class="mesh-blob mesh-blob-2"></div></div>
   <div class="vision-inner">
     <div class="vision-header">
-      <p class="section-label reveal" id="vision-label">The Philosophy</p>
-      <h2 class="section-title reveal"><span id="vision-t1">Vision &amp;</span><span class="accent-text" id="vision-t2"> Mission</span></h2>
+      <p class="section-label reveal" id="vision-label">رؤيتنا ورسالتنا</p>
+      <h2 class="section-title reveal"><span id="vision-t1">الرؤية</span><span class="accent-text" id="vision-t2"> والرسالة</span></h2>
       <div class="section-line reveal" style="margin:1.4rem auto 0;"></div>
     </div>
     <div class="vision-grid">
       <div class="vision-card card-vision reveal">
         <div class="vision-card-glow"></div>
         <span class="vision-big-icon">🔭</span>
-        <div class="vision-tag" id="vision-tag">Vision</div>
-        <h3 id="vision-title">Egypt's #1 Choice for Sports Facility Management.</h3>
-        <p id="vision-text">To be the first choice in the management and operation of sports facilities and swimming academies across the entire Republic of Egypt.</p>
+        <div class="vision-tag" id="vision-tag">رؤيتنا</div>
+        <h3 id="vision-title">الاختيار الأول.</h3>
+        <p id="vision-text">أن نكون الاختيار الأول في إدارة وتشغيل المنشآت الرياضية وأكاديميات السباحة على مستوى الجمهورية.</p>
       </div>
       <div class="vision-card card-mission reveal">
         <div class="vision-card-glow"></div>
         <span class="vision-big-icon">🚀</span>
-        <div class="vision-tag" id="mission-tag">Mission</div>
-        <h3 id="mission-title">Building a Healthy Generation, One Pool at a Time.</h3>
-        <p id="mission-text">To deliver a distinguished sports and educational service that contributes to building a healthy and athletic generation, according to the most advanced administrative and technical systems.</p>
+        <div class="vision-tag" id="mission-tag">رسالتنا</div>
+        <h3 id="mission-title">صناعة جيل صحي ورياضي.</h3>
+        <p id="mission-text">تقديم خدمة رياضية وتعليمية متميزة تساهم في صناعة جيل صحي ورياضي وفق أحدث النظم الإدارية والفنية.</p>
       </div>
     </div>
   </div>
@@ -371,9 +286,9 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#hero" class="nav-logo" style="text-decoration:none;">Swim Home</a>
-        <p id="footer-tagline">Specialized in the construction, management, and operation of swimming academies and pools. All projects under the patronage of Swim Home Sports Services.</p>
-        <p class="footer-patronage" id="footer-patronage">© All Projects Under the Patronage of Swim Home Sports Services</p>
+        <a href="#hero" class="nav-logo" style="text-decoration:none;">سويم هوم</a>
+        <p id="footer-tagline">تُعد Swim Home من الجهات المتخصصة في إنشاء وإدارة وتشغيل أكاديميات السباحة وحمامات السباحة.</p>
+        <p class="footer-patronage" id="footer-patronage">جميع المشروعات تمت تحت غطاء ورعاية Swim Home للخدمات الرياضية</p>
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=100064440771070" class="social-btn" title="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
@@ -384,28 +299,28 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4 id="footer-nav-title">Navigation</h4>
+        <h4 id="footer-nav-title">روابط سريعة</h4>
         <ul>
-          <li><a href="#about"     id="footer-nav-about">About</a></li>
-          <li><a href="#services"  id="footer-nav-services">Services</a></li>
-          <li><a href="#timeline"  id="footer-nav-timeline">Projects</a></li>
-          <li><a href="#strengths" id="footer-nav-strengths">Why Us</a></li>
-          <li><a href="#vision"    id="footer-nav-vision">Vision</a></li>
+          <li><a href="#about"     id="footer-nav-about">من نحن</a></li>
+          <li><a href="#services"  id="footer-nav-services">خدماتنا</a></li>
+          <li><a href="#timeline"  id="footer-nav-timeline">مشاريعنا</a></li>
+          <li><a href="#strengths" id="footer-nav-strengths">نقاط القوة</a></li>
+          <li><a href="#vision"    id="footer-nav-vision">رؤيتنا</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 id="footer-contact-title">Contact</h4>
+        <h4 id="footer-contact-title">تواصل معنا</h4>
         <ul class="footer-contact">
-          <li><span class="ico">📍</span><span id="footer-address">Tanta, Al-Gharbia Governorate, Egypt</span></li>
-          <li><span class="ico">📞</span><span id="footer-phone">+20 1020300010</span></li>
+          <li><span class="ico">📍</span><span id="footer-address">طنطا، محافظة الغربية، مصر</span></li>
+          <li><span class="ico">📞</span><span id="footer-phone">+201020300010</span></li>
           <li><span class="ico">📧</span><span id="footer-email">ahmedsaadhebila@gmail.com</span></li>
-          <li><span class="ico">⏰</span><span id="footer-hours">Sat – Thu: 11:00 AM – 10:00 PM</span></li>
+          <li><span class="ico">⏰</span><span id="footer-hours">11 صباحاً / 11 مساءً</span></li>
         </ul>
       </div>
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p id="footer-copy">© 2026 <span>Swim Home Sports Services</span>. All rights reserved.</p>
+      <p id="footer-copy">© 2026 <span>Swim Home للخدمات الرياضية</span>. جميع الحقوق محفوظة.</p>
       <p >
         Designed & Developed by <strong>Ahmed hebila</strong> | 
         <a href="https://www.linkedin.com/in/ahmed-hebila/" target="_blank" rel="noopener noreferrer">LinkedIn</a> - 
@@ -417,11 +332,7 @@
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
-<script src="js/i18n.js"></script>
 <script src="js/theme.js"></script>
-<script>
-  applyLanguage(localStorage.getItem('sh-lang') || 'ar');
-</script>
 <script src="js/animations.js"></script>
 </body>
 </html>
